@@ -5,9 +5,10 @@
              Shell.NavBarIsVisible="False">
 	<VerticalStackLayout Margin="20">
 		<HorizontalStackLayout 
+            HorizontalOptions="Center"
 			VerticalOptions="Center"
 			Margin="0, 20"
-			Spacing="10">
+			Spacing="20">
 			<Label Text="Sample Value:"
 			       FontSize="17"
 			       VerticalOptions="Center"/>
@@ -32,20 +33,28 @@
 			        HorizontalOptions="End"
 			        Clicked="OnClearTypeInfo"/>
 		</HorizontalStackLayout>
-		<ListView x:Name="_lstTypes" 
-		          ItemSelected="OnTypeSelected">
-			<ListView.ItemsSource>
-				<x:Array Type="{x:Type x:String}">
-					<x:String>int</x:String>
-					<x:String>long</x:String>
-					<x:String>float</x:String>
-					<x:String>double</x:String>
-					<x:String>decimal</x:String>
-					<x:String>string</x:String>
-					<x:String>bool</x:String>
-					<x:String>char</x:String>
-				</x:Array>
-			</ListView.ItemsSource>
-		</ListView>
-	</VerticalStackLayout>
+        <Border StrokeThickness="3">
+            <CollectionView x:Name="_lstTypes"   
+                            Margin="10"
+                            SelectionMode="Single"
+							SelectionChanged="OnTypeSelected">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                           ItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemsSource>
+					<x:Array Type="{x:Type x:String}">
+						<x:String>int</x:String>
+						<x:String>long</x:String>
+						<x:String>float</x:String>
+						<x:String>double</x:String>
+						<x:String>decimal</x:String>
+						<x:String>string</x:String>
+						<x:String>bool</x:String>
+						<x:String>char</x:String>
+					</x:Array>
+				</CollectionView.ItemsSource>
+			</CollectionView>
+        </Border>
+    </VerticalStackLayout>
 </ContentPage>

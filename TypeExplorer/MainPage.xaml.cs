@@ -7,9 +7,9 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    private void OnTypeSelected(object sender, SelectedItemChangedEventArgs e)
-    {
-        string typeName = e.SelectedItem as string;
+    private void OnTypeSelected(object sender, SelectionChangedEventArgs e)
+	{
+        string typeName = (string)_lstTypes.SelectedItem;
         switch (typeName)
         {
             case "int":
